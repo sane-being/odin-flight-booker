@@ -1,24 +1,20 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a practice project, as instructed on The Odin Project, built with Ruby on Rails, designed to simulate a simple flight booking system.
 
-Things you may want to cover:
+## Project Description
 
-* Ruby version
+The Flight Booker application allows users to:
 
-* System dependencies
+* View available flights based on departure and arrival airports and date.
+* Select a flight and book tickets for passengers.
+* Manage passenger information during booking.
 
-* Configuration
+This project is intended for educational purposes, focusing on practicing fundamental Rails concepts such as:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Model-View-Controller (MVC) architecture.
+* Database interactions using ActiveRecord.
+* Form handling and data validation.
+* Routing and RESTful resources.
+* Basic view templating with ERB.
+* Associations between models.
