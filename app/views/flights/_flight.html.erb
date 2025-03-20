@@ -16,7 +16,7 @@
 
   <p>
     <strong>Journey duration:</strong>
-    <%= (flight.arrival_datetime - flight.departure_datetime)/60/60 %>
+    <%= ((flight.arrival_datetime - flight.departure_datetime)/60/60).round(1) %>
     hours
   </p>
 
