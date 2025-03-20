@@ -5,4 +5,9 @@ class Airport < ApplicationRecord
     presence: true,
     uniqueness: true,
     format: { with: /\A[A-Z]+\z/, message: "only allows capital letters" }
+
+  # associations
+  has_many :departing_flights,
+    foreign_key: "departure_airport_id",
+    class_name: "Flight"
 end
