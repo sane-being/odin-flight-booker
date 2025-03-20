@@ -10,13 +10,19 @@
   </p>
   
   <p>
-    <strong>Date of departure:</strong>
+    <strong>Departs:</strong>
     <%= flight.departure_datetime %>
   </p>
 
   <p>
-    <strong>Flight duration:</strong>
-    <%= flight.flight_duration %>
+    <strong>Journey duration:</strong>
+    <%= (flight.arrival_datetime - flight.departure_datetime)/60/60 %>
+    hours
   </p>
 
+  <p>
+    <strong>Arrives:</strong>
+    <%= flight.arrival_datetime %>
+  </p>
+  
 </div>

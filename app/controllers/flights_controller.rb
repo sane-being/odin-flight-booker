@@ -65,6 +65,6 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.expect(flight: [ :departure_datetime, :flight_duration, :departure_airport_id, :arrival_airport_id ])
+      params.expect(flight: [ :departure_datetime, :arrival_datetime, :departure_airport_id, :arrival_airport_id ])
     end
 end

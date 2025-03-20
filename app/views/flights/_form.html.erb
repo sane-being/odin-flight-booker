@@ -12,23 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :flight_departure_airport_id, style: "display: block" %>
+    <%= form.label :flight_departure_airport_id, "From", style: "display: block" %>
     <%= form.collection_select :departure_airport_id, Airport.order(:airport_code), :id, :airport_code %>
   </div>
 
   <div>
-    <%= form.label :flight_arrival_airport_id, style: "display: block" %>
+    <%= form.label :flight_arrival_airport_id, "To", style: "display: block" %>
     <%= form.collection_select :arrival_airport_id, Airport.order(:airport_code), :id, :airport_code %>
   </div>
 
   <div>
-    <%= form.label :departure_datetime, style: "display: block" %>
+    <%= form.label :departure_datetime, "Departs", style: "display: block" %>
     <%= form.datetime_field :departure_datetime %>
   </div>
 
   <div>
-    <%= form.label :flight_duration, style: "display: block" %>
-    <%= form.time_field :flight_duration %>
+    <%= form.label :arrival_datetime, "Arrives", style: "display: block" %>
+    <%= form.datetime_field :arrival_datetime %>
   </div>
 
   <div>

@@ -5,7 +5,7 @@ class Flight < ApplicationRecord
 
   # validations
   validates :departure_datetime, presence: true
-  validates :flight_duration, presence: true
+  validates :arrival_datetime, presence: true, comparison: { greater_than: :departure_datetime }
   validates :departure_airport_id, presence: true
-  validates :arrival_airport_id, presence: true
+  validates :arrival_airport_id, presence: true, comparison: { other_than: :departure_airport_id }
 end
