@@ -1,6 +1,16 @@
 <div id="<%= dom_id flight %>">
   <p>
-    <strong>Departure datetime:</strong>
+    <strong>From:</strong>
+    <%= flight.departure_airport.airport_code %>
+  </p>
+  
+  <p>
+    <strong>To:</strong>
+    <%= flight.arrival_airport.airport_code %>
+  </p>
+  
+  <p>
+    <strong>Date of departure:</strong>
     <%= flight.departure_datetime %>
   </p>
 
