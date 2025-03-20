@@ -3,7 +3,17 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
-    @flights = Flight.all
+    search_params = [ :departure_datetime, :arrival_airport_id, :departure_airport_id ]
+    if search_params.all? { |key| params.include? key }
+      @flights = Flight.where(
+        "departure_airport_id = ? AND arrival_airport_id = ? AND DATE(departure_datetime) = ?",
+        params.expect(:departure_airport_id),
+        params.expect(:arrival_airport_id),
+        params.expect(:departure_datetime)
+      )
+    else
+      @flights = nil
+    end
   end
 
   # GET /flights/1 or /flights/1.json

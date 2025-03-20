@@ -2,15 +2,25 @@
 
 <% content_for :title, "Flights" %>
 
-<h1>Flights</h1>
+<h1>Search flights:</h1>
+
+<div>
+  <%= render "search_flights" %>
+</div>
 
 <div id="flights">
-  <% @flights.each do |flight| %>
-    <%= render flight %>
-    <p>
-      <%= link_to "Show this flight", flight %>
-    </p>
+  <% if @flights.nil? %>
+    <p>Search for flights</p>
+  <% elsif @flights.empty? %>
+    <p>No flights found for your destination on given date!</p>
+  <% else %>
+    <% @flights.each do |flight| %>
+      <%= render flight %>
+      <p>
+        <%= link_to "Show this flight", flight %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New flight", new_flight_path %>
+<%#= link_to "New flight", new_flight_path %>
