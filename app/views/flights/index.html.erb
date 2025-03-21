@@ -8,18 +8,15 @@
   <%= render "search_flights" %>
 </div>
 
+<div><%= link_to "Clear", flights_path %></div>
+
 <div id="flights">
   <% if @flights.nil? %>
     <p>Search for flights</p>
   <% elsif @flights.empty? %>
     <p>No flights found for your destination on given date!</p>
   <% else %>
-    <% @flights.each do |flight| %>
-      <%= render flight %>
-      <p>
-        <%= link_to "Show this flight", flight %>
-      </p>
-    <% end %>
+    <%= render "select_flight" %>
   <% end %>
 </div>
 
