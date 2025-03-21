@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <% @passenger_count.times do |index| %>
+    <h3>Passenger <%= index+1 %>:</h3>
+
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

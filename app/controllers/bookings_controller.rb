@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @flight = Flight.find(params.expect(:flight_id))
+    @passenger_count = params.expect(:passenger_count).to_i
   end
 
   # GET /bookings/1/edit

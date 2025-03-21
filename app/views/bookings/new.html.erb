@@ -2,11 +2,9 @@
 
 <h1>New booking</h1>
 
-<%= render "form", booking: @booking %>
+<%= render "flights/flight", flight: @flight %>
 
-<% @passenger_count.to_i.times do |index| %>
-  <h3>Passenger <%= index + 1 %>:</h3>
-<% end %>
+<%= render "form", booking: @booking %>
 
 <br>
 
