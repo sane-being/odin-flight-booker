@@ -1,2 +1,11 @@
 <div id="<%= dom_id booking %>">
+  <%= render "flights/flight", flight: @flight %>
+
+  <% booking.passengers.each_with_index do |passenger, index| %>
+    <h3>Passenger <%= index+1%></h3>
+    <%= render "passengers/passenger", passenger: passenger %>
+  <% end %>
+
+  
+
 </div>

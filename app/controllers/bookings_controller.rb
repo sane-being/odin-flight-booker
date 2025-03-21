@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :set_flight
   before_action :set_booking, only: %i[ show edit update destroy ]
+
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = @flight.bookings
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -13,7 +15,6 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     # @booking = Booking.new
-    @flight = Flight.find(params.expect(:flight_id))
     @booking = @flight.bookings.build
 
     @passenger_count = params.expect(:passenger_count).to_i
@@ -26,15 +27,12 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @flight = Flight.find(params.expect(:flight_id))
     @booking = @flight.bookings.build(booking_params)
 
-    respond_to do |format|
-      if @booking.save
-        redirect_to flight_booking_path(@flight, @booking), notice: "Booking was successfully created."
-      else
-        render :new
-      end
+    if @booking.save
+      redirect_to flight_booking_path(@flight, @booking), notice: "Booking was successfully created."
+    else
+      render :new
     end
   end
 
@@ -65,11 +63,16 @@ class BookingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params.expect(:id))
+      # @booking = @flight.bookings.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def booking_params
       # params.fetch(:booking, {})
       params.expect(booking: [ passengers_attributes: [ [ :name, :email ] ] ])
+    end
+
+    def set_flight
+      @flight = Flight.find(params.expect(:flight_id))
     end
 end
