@@ -1,6 +1,6 @@
 <h3>Select flight to proceed:</h3>
 
-<%= form_with url: new_flight_booking_path(:flight_id), method: :get do |form|%>
+<%= form_with url: flights_path, method: :get do |form|%>
 
   <% @flights.each do |flight| %>
     <div>
@@ -9,6 +9,10 @@
       <%= form.radio_button :flight_id, flight.id %>
     </div>
   <% end %>
+
+  <div>
+    <%= form.hidden_field :passenger_count, value: @passenger_count %>
+  </div>
 
   <div>
     <%= form.submit "Next" %>
