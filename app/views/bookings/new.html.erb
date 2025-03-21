@@ -4,8 +4,12 @@
 
 <%= render "form", booking: @booking %>
 
+<% flash[:passenger_count].to_i.times do |count| %>
+  <p>Passenger <%= count %></p>
+<% end %>
+
 <br>
 
 <div>
-  <%= link_to "Back to bookings", bookings_path %>
+  <%#= link_to "Back to bookings", bookings_path %>
 </div>

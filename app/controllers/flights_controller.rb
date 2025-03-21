@@ -3,11 +3,7 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
-    if params.include? :id
-      redirect_to flight_path(params.expect(:id))
-    end
-
-    search_params = [ :departure_datetime, :arrival_airport_id, :departure_airport_id ]
+    search_params = [ :departure_datetime, :arrival_airport_id, :departure_airport_id, :passenger_count ]
     if search_params.all? { |key| params.include? key }
       @flights = Flight.where(
         "departure_airport_id = ? AND arrival_airport_id = ? AND DATE(departure_datetime) = ?",
@@ -15,6 +11,7 @@ class FlightsController < ApplicationController
         params.expect(:arrival_airport_id),
         params.expect(:departure_datetime)
       )
+      flash[:passenger_count] = params.expect(:passenger_count)
     else
       @flights = nil
     end
