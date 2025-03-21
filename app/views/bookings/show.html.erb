@@ -1,3 +1,5 @@
+<div><%= link_to "Back to bookings", flight_bookings_path(@flight) %></div>
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Booking details</h1>
@@ -5,8 +7,6 @@
 <%= render @booking %>
 
 <div>
-  <%= link_to "Edit this booking", edit_flight_booking_path(@flight, @booking) %> |
-  <%= link_to "Back to bookings", flight_bookings_path(@flight) %>
-
-  <%#= button_to "Destroy this booking", @booking, method: :delete %>
+  <%#= link_to "Edit this booking", edit_flight_booking_path(@flight, @booking) %>
+  <%= button_to "Destroy this booking", flight_booking_path(@flight, @booking), method: :delete %>
 </div>

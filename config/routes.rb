@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :flights, only: [ :index, :show ] do
-    resources :bookings do
-      resources :passengers
-    end
+    resources :bookings, only: [ :index, :show, :new, :create, :destroy ]
   end
   resources :airports, only: [ :index ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
