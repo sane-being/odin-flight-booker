@@ -1,4 +1,4 @@
-<%= form_with(model: booking, url: flight_bookings_path) do |form| %>
+<%= form_with(model: booking, url: flight_bookings_path(@flight)) do |form| %>
   <% if booking.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -11,10 +11,18 @@
     </div>
   <% end %>
 
-  <% @passenger_count.times do |index| %>
-    <h3>Passenger <%= index+1 %>:</h3>
+  <ul>
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <li>
+        <h3>Passenger details:</h3>
+        <%= passenger_form.label :name, style: "display: block" %>
+        <%= passenger_form.text_field :name %>
 
-  <% end %>
+        <%= passenger_form.label :email, style: "display: block" %>
+        <%= passenger_form.text_field :email %>
+      </li>
+    <% end %>
+  </ul>
 
   <div>
     <%= form.submit %>

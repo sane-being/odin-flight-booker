@@ -3,7 +3,7 @@ class CreatePassengers < ActiveRecord::Migration[8.0]
     create_table :passengers do |t|
       t.string :name
       t.string :email
-      t.belongs_to :bookings
+      t.belongs_to :booking
 
       t.timestamps
     end

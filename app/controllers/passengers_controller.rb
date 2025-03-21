@@ -12,7 +12,7 @@ class PassengersController < ApplicationController
 
   # GET /passengers/new
   def new
-    @passenger = Passenger.new
+    # @passenger = Passenger.new
   end
 
   # GET /passengers/1/edit
